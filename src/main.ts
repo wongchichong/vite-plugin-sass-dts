@@ -7,6 +7,7 @@ import { getParseCase } from './options'
 import type { CSS, FinalConfig, PluginOptions } from './type'
 import { isSassException } from './util'
 import { writeToFile } from './write'
+import * as path from 'path'
 
 export const main = (
   fileName: string,
@@ -15,6 +16,9 @@ export const main = (
 ) => {
   try {
     fs.readFile(fileName, async (err, file) => {
+      // console.log(fileName, err, file)
+      console.log('config.root: ', path.resolve(config.root))
+      // console.log(config, option)
       if (err) {
         console.error(err)
       } else {
@@ -27,6 +31,8 @@ export const main = (
             objectify(parse(css.localStyle)),
             toParseCase
           )
+
+          console.log('classNameKeys: ', classNameKeys)
           writeToFile(config.prettierOptions, fileName, classNameKeys, option)
 
           if (!!css.globalStyle && option.global?.generate) {
@@ -42,6 +48,7 @@ export const main = (
             )
           }
         } catch (e) {
+          console.error('e :>> ', e)
           if (isSassException(e)) {
             if (e.name !== fileName) {
               console.error('e :>> ', e)

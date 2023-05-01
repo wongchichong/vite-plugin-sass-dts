@@ -1,7 +1,9 @@
 import { FC } from 'react'
-import styles, { row } from './App.module.scss'
+import styles from './App.module.scss'
 import { classNamesFunc } from 'classnames-generics'
 import { User } from './User/User'
+
+const { row } = styles
 
 const classNames = classNamesFunc<keyof typeof styles>()
 type Props = {

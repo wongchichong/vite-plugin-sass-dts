@@ -1,13 +1,23 @@
 {
-  "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig.json to read more about this file */
-    "target": "esnext",
-    "module": "commonjs",
-    "baseUrl": "src",
-    "outDir": "./dist/",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true
-  },
-  "exclude": ["node_modules", "example/*", "dist/*"]
+    "compilerOptions": {
+        /* Visit https://aka.ms/tsconfig.json to read more about this file */
+        "target": "ESNext",
+        "module": "ESNext",
+        "baseUrl": "src",
+        "outDir": "./dist/",
+        "lib": [
+            "ESNext",
+        ],
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "skipLibCheck": true,
+        "strict": true
+    },
+    "exclude": [
+        "node_modules",
+        "example/*",
+        "dist/*"
+    ]
 }
